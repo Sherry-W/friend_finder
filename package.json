@@ -1,0 +1,30 @@
+{
+  "name": "friend_finder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sherry-W/friend_finder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sherry-W/friend_finder/issues"
+  },
+  "homepage": "https://github.com/Sherry-W/friend_finder#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.6.1",
+    "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.15.1",
+    "method-override": "^3.0.0",
+    "mysql": "^2.16.0"
+  }
+}
