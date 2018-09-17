@@ -16,24 +16,16 @@ INSERT INTO choices (id, choice) VALUES
     (3, "Neutral"), 
     (4, "Likely"), 
     (5, "Very Likely");
-
--- INSERT INTO users (id, username, email, gender, answers) VALUES 
---     (1, "John Smith", "john@gmail.com", "Male", "[5, 5, 5, 5, 5, 5, 5, 5, 5, 5]"), 
---     (2, "John Joe", "johndoe@gmail.com", "Male", "[4, 4, 4, 4, 4, 4, 4, 4, 4, 4]"), 
---     (3, "Kelly Doe", "kelly@gmail.com", "Female", "[4, 4, 4, 4, 4, 4, 4, 4, 4, 4]"), 
---     (4, "Lilo", "lilo@gmail.com", "Female", "[5, 5, 5, 5, 5, 5, 5, 5, 5, 5]"), 
---     (5, "Kayla Taylor", "kaytaylor@gmail.com", "Female", "[3, 3, 3, 3, 3, 3, 3, 3, 3, 3]");
     
 INSERT INTO users (id, username, email, gender, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10) VALUES 
-    (1, "John Smith", "john@gmail.com", "Male", 5, 5, 5, 5, 5, 5, 5, 5, 5, 5), 
-    (2, "John Joe", "johndoe@gmail.com", "Male", 5, 5, 5, 5, 5, 5, 5, 5, 5, 5), 
-    (3, "Kelly Doe", "kelly@gmail.com", "Female", 4, 4, 4, 4, 4, 4, 4, 4, 4, 4), 
-    (4, "Lilo", "lilo@gmail.com", "Female", 5, 5, 5, 5, 5, 5, 5, 5, 5, 5), 
-    (5, "Kayla Taylor", "kaytaylor@gmail.com", "Female", 3, 3, 3, 3, 3, 3, 3, 3, 3, 3);
+    (1, "John Smith", "john@gmail.com", "Male", 5, 3, 2, 4, 1, 3, 4, 2, 3, 5), 
+    (2, "John Joe", "johndoe@gmail.com", "Male", 2, 3, 5, 3, 4, 1, 2, 3, 4, 2), 
+    (3, "Kelly Doe", "kelly@gmail.com", "Female", 4, 2, 1, 3, 2, 1, 5, 3, 5, 4), 
+    (4, "Lilo", "lilo@gmail.com", "Female", 1, 5, 2, 3, 4, 5, 1, 2, 3, 5), 
+    (5, "Ken", "ken@gmail.com", "Male", 4, 3, 1, 4, 1, 4, 2, 5, 1, 3), 
+    (6, "Aaron", "aaron@gmail.com", "Male", 5, 3, 2, 1, 3, 5, 4, 1, 2, 4), 
+    (7, "Jack", "jack@gmail.com", "Male", 4, 2, 3, 5, 3, 1, 2, 4, 5, 1), 
+    (8, "Kayla Taylor", "kaytaylor@gmail.com", "Female", 3, 4, 5, 1, 2, 5, 4, 1, 2, 3),
+    (9, "Minnie", "minnie@email.com", "Female", 5, 4, 1, 2, 1, 5, 3, 2, 5, 3),
+    (10, "Sky", "sky@gmail.com", "Female", 2, 4, 3, 1, 2, 1, 5, 3, 2, 4);
 
--- INSERT INTO user_answers (id, users_id, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10) VALUES 
---     (1, 1, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5), 
---     (2, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5), 
---     (3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4), 
---     (4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5), 
---     (5, 5, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3);

@@ -35,16 +35,19 @@ var connection = mysql.createConnection({
 	database: "friendfinder_db"
 });
 
+function calDifference () {
+	var totalDifference = 0;
+
+}
+
 // homepage
 app.get('/friendfinder', function(req, res) {
     res.render('pages/friendfinder');
 });
 
-// survey
-// app.get('/friendfinder/survey', function(req, res) {
-//     res.render('pages/survey');
-// });
 
+
+// survey
 app.get('/friendfinder/survey', function(req, res){
     connection.query('SELECT * FROM questions',function (error, results, fields) {
         var ques = results;
@@ -62,18 +65,15 @@ app.post('/userinfo', function(req, res){
 	console.log(req.body);
 
 	connection.query('INSERT INTO users (username, email, gender, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [req.body.username, req.body.email,req.body.gender, req.body.q1, req.body.q2, req.body.q3, req.body.q4, req.body.q5, req.body.q6, req.body.q7, req.body.q8, req.body.q9, req.body.q10], function(err, response) {	
-			res.redirect('/friendfinder/api');
+		res.redirect('/friendfinder');
 	  }
 	);
 })
 
-// app.post('/userinfo', function (req, res) {
-// 	// if (!req.body) return res.sendStatus(400)
-// 	console.log(req.body);
-//   })
 
 
-// api --- to be updated
+
+// api 
 app.get('/friendfinder/api', function(req, res) {
 	connection.query("SELECT users.id AS id, username, email, gender, CONCAT_WS(', ', q1, q2, q3, q4, q5, q6, q7, q8, q9, q10) AS answers FROM users", function (err, resp, fie) {
 		res.send(resp);

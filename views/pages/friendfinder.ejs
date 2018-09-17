@@ -9,6 +9,9 @@
 		#nav_deals{
 			color: white;
 		}
+		header{
+			margin-bottom: 100px;
+		}
 	</style>
 
 </head>
@@ -18,11 +21,79 @@
 		<% include ../partials/header %>
 	</header>
 
- 
+
+<!-- Button trigger modal -->
+<h3 id="resultReady"></h3>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+See Matched!
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLongTitle">Nothing yet...</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+			Please complete the survey to find your matched friend!
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			
+		</div>
+		</div>
+	</div>
+</div>
+	<h3></h3>
+	<h4 id="matched"></h4>
+
+
 
 <!-- Footer -->
 <% include ../partials/footer %>
 <!-- Footer -->
 
+<script>
+
+	$.ajax({
+		url: '/friendfinder/api',
+		method: 'GET'
+	}).then(function(data) {
+
+		//
+		var currentUser = data[data.length - 1].answers.split(", ");
+			// console.log (currentUser);
+
+		var lowestDifference = 50;
+
+		for (let i = 0; i < data.length - 1; i++) {
+			var totalDiff = 0;
+
+			for (let j = 0; j < currentUser.length; j++) {
+				var otherUsers = data[i].answers.split(', ');
+				totalDiff += (otherUsers[j]) - (currentUser[j]);
+				totalDiff = Math.abs(totalDiff);
+				// console.log ([j], totalDiff, (otherUsers[j]) , (currentUser[j]) );
+			}
+			if (totalDiff < lowestDifference) {
+					lowestDifference = totalDiff;
+					// console.log ("lowestDifference: " + lowestDifference);
+					// console.log ("otherUsers: " + data[i].username);
+					var matchedUserName = data[i].username;
+					var matchedUserEmail = data[i].email;
+					// console.log (matchedUserName, matchedUserEmail);
+				}
+		}
+
+		$('#resultReady').text("Your result is ready, please click the button below to see your Matched!");
+		$('#exampleModalLongTitle').text("You matched with " + matchedUserName + "!");
+		$('.modal-body').html("Name: " + matchedUserName + '<br>' + "Email: " + matchedUserEmail);
+	});
+
+</script>
 </body>
 </html>
